@@ -1,5 +1,5 @@
 {
-  "name": "@good-i-deer/node-red-contrib-face-detection",
+  "name": "@smcgann/node-red-face-detection-plus",
   "version": "1.0.0",
   "description": "Face Detection Node for Node-RED",
   "keywords": [
@@ -11,9 +11,9 @@
   "license": "GPL-3.0",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/GOOD-I-DEER/node-red-contrib-face-detection.git"
+    "url": "git+https://github.com/smcgann99/node-red-face-detection-plus.git"
   },
-  "author": "GOOD-I-DEER",
+  "author": "S.McGann",
   "node-red" : {
     "nodes": {
         "GoodFaceDetection": "face-detection-node/face-detection.js"
@@ -25,9 +25,9 @@
   },
   "private": false,
   "bugs": {
-    "url": "https://github.com/GOOD-I-DEER/node-red-contrib-face-detection/issues"
+    "url": "https://github.com/smcgann99/node-red-face-detection-plus/issues"
   },
-  "homepage": "https://github.com/GOOD-I-DEER/node-red-contrib-face-detection#readme",
+  "homepage": "https://github.com/smcgann99/node-red-face-detection-plus#readme",
   "main": "face-detection-node/face-detection.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
