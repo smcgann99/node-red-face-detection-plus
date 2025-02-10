@@ -37,5 +37,8 @@
     "url": "https://github.com/smcgann99/node-red-face-detection-plus/issues"
   },
   "homepage": "https://github.com/smcgann99/node-red-face-detection-plus#readme",
-  "main": "face-detection-node/face-detection.js"
+  "main": "face-detection-node/face-detection.js",
+  "scripts": {
+    "postinstall": "node install-models.js"
+  }
 }

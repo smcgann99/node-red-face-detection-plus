@@ -1,5 +1,5 @@
 <script type="text/javascript">
-  RED.nodes.registerType("good-face-detection", {
+  RED.nodes.registerType("face-detection-plus", {
     category: "GOOD I DEER",
     color: "#1AE5BE",
     defaults: {
@@ -48,7 +48,7 @@
     },
     inputs: 1,
     outputs: 1,
-    paletteLabel: "Good Face Detection",
+    paletteLabel: "Face Detection Plus",
     inputLabels: ["Image Buffer"],
     outputLabels: ["Detected Object"],
     icon: "font-awesome/fa-smile-o",
@@ -58,7 +58,7 @@
   });
 </script>
 
-<script type="text/html" data-template-name="good-face-detection">
+<script type="text/html" data-template-name="face-detection-plus">
   <div class="form-row">
     <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
     <input type="text" id="node-input-name" placeholder="Name" />
@@ -102,6 +102,6 @@
   </div>
 </script>
 
-<script type="text/html" data-help-name="good-face-detection">
+<script type="text/html" data-help-name="face-detection-plus">
   <p>face-detection node using pre-trained yolov8 model</p>
 </script>
