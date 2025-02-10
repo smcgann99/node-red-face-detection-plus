@@ -1,6 +1,6 @@
 {
   "name": "@smcgann/node-red-face-detection-plus",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "Face Detection Node for Node-RED",
   "keywords": [
     "node-red",
@@ -14,22 +14,28 @@
     "url": "git+https://github.com/smcgann99/node-red-face-detection-plus.git"
   },
   "author": "S.McGann",
-  "node-red" : {
+  "contributors": [
+    {
+      "name": "GOOD-I-DEER"
+    }
+  ],
+  "node-red": {
     "nodes": {
-        "GoodFaceDetection": "face-detection-node/face-detection.js"
+      "version": ">=4.0.0",
+      "face-detection-plus": "face-detection.js"
     }
   },
   "dependencies": {
     "onnxruntime-node": "^1.20.1",
     "sharp": "^0.33.5"
   },
+  "engines": {
+    "node": ">=18"
+  },
   "private": false,
   "bugs": {
     "url": "https://github.com/smcgann99/node-red-face-detection-plus/issues"
   },
   "homepage": "https://github.com/smcgann99/node-red-face-detection-plus#readme",
-  "main": "face-detection-node/face-detection.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  }
+  "main": "face-detection-node/face-detection.js"
 }
