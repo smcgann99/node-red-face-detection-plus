@@ -1,0 +1,35 @@
+{
+  "name": "@good-i-deer/node-red-contrib-face-detection",
+  "version": "1.0.0",
+  "description": "Face Detection Node for Node-RED",
+  "keywords": [
+    "node-red",
+    "face-detection",
+    "yolo",
+    "onnx"
+  ],
+  "license": "GPL-3.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GOOD-I-DEER/node-red-contrib-face-detection.git"
+  },
+  "author": "GOOD-I-DEER",
+  "node-red" : {
+    "nodes": {
+        "GoodFaceDetection": "face-detection-node/face-detection.js"
+    }
+  },
+  "dependencies": {
+    "onnxruntime-node": "^1.20.1",
+    "sharp": "^0.33.5"
+  },
+  "private": false,
+  "bugs": {
+    "url": "https://github.com/GOOD-I-DEER/node-red-contrib-face-detection/issues"
+  },
+  "homepage": "https://github.com/GOOD-I-DEER/node-red-contrib-face-detection#readme",
+  "main": "face-detection-node/face-detection.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
