@@ -20,8 +20,8 @@
     }
   ],
   "node-red": {
+    "version": ">=4.0.0",
     "nodes": {
-      "version": ">=4.0.0",
       "face-detection-plus": "face-detection.js"
     }
   },
