@@ -3,7 +3,8 @@ const fs = require("fs");
 const path = require("path");
 
 const modelUrls = {
-  "facenet-model": "https://github.com/GOOD-I-DEER/node-red-contrib-face-vectorization/raw/main/model/facenet-model.onnx",
+  "yolov8n-face": "https://github.com/smcgann99/node-red-face-detection-plus/raw/main/model/yolov8n-face.onnx",
+  "yolov8s-face": "https://github.com/smcgann99/node-red-face-detection-plus/raw/main/model/yolov8s-face.onnx"
 };
 
 const downloadDir = path.join(__dirname, "model");

@@ -1,4 +1,4 @@
-# @GOOD-I-DEER/node-red-contrib-face-detection
+# @smcgann/node-red-face-detection-plus
 
 [![platform](https://img.shields.io/badge/platform-Node--RED-red)](https://nodered.org)
 [![npm version](https://badge.fury.io/js/@good-i-deer%2Fnode-red-contrib-face-detection.svg)](https://badge.fury.io/js/@good-i-deer%2Fnode-red-contrib-face-detection)
@@ -6,7 +6,7 @@
 
 This module provides a node that detects faces using AI in Node-RED.
 
-These nodes require node.js version 18.16.1 and Node-RED version 3.1.0.
+These nodes require node.js version >=18 and Node-RED version >=3.1.0.
 
 <hr>
 
@@ -16,7 +16,7 @@ These nodes require node.js version 18.16.1 and Node-RED version 3.1.0.
 
 # Pre-requisites
 
-The Node-Red-Contrib-Face-Detection requires **[Node-RED](https://nodered.org/)** to be installed.
+@smcgann/node-red-face-detection-plus requires **[Node-RED](https://nodered.org/)** to be installed.
 
 # Install
 
@@ -24,7 +24,7 @@ To use this module you need to go to the folder where node-red is installed and 
 
 ```bash
 cd ~/.node-red/
-npm install @good-i-deer/node-red-contrib-face-detection
+npm install @smcgann/node-red-face-detection-plus
 ```
 
 # Node
@@ -41,7 +41,7 @@ Image Buffer
 
 ### property
 
-<img width="700" alt="detected_object" src="https://github.com/GOOD-I-DEER/node-red-contrib-face-detection/assets/130892737/4b813dbf-d39b-4a84-b731-1f9f82500d2e">
+<img width="700" alt="detected_object" src="https://github.com/smcgann99/node-red-face-detection-plus/assets/130892737/4b813dbf-d39b-4a84-b731-1f9f82500d2e">
 
 Name
 
@@ -73,17 +73,17 @@ Data is output in the output format selected in the 'Return Value' property.
 
 <details>
   <summary>Detected Object</summary>
-  <img width="180" style="display : inline-block; margin-left: 10px;" alt="detected_object" src="https://github.com/GOOD-I-DEER/node-red-contrib-face-detection/assets/130892737/abdb239c-8b53-4af2-8ebc-77956cdc42b1">
+  <img width="180" style="display : inline-block; margin-left: 10px;" alt="detected_object" src="https://github.com/smcgann99/node-red-face-detection-plus/assets/130892737/abdb239c-8b53-4af2-8ebc-77956cdc42b1">
 </details>
     
 <details>
   <summary>Image Buffer</summary>
-  <img width="700" alt="image_buffer" src="https://github.com/GOOD-I-DEER/node-red-contrib-face-detection/assets/130892737/f2842c90-b1ec-4dc1-8b8d-6f9aa361c604">
+  <img width="700" alt="image_buffer" src="https://github.com/smcgann99/node-red-face-detection-plus/assets/130892737/f2842c90-b1ec-4dc1-8b8d-6f9aa361c604">
 </details>
 
 <details>
   <summary>Image File</summary>
-  <img width="700" alt="image_file" src="https://github.com/GOOD-I-DEER/node-red-contrib-face-detection/assets/130892737/c9fdd466-d80c-440d-b360-0894dff76949">
+  <img width="700" alt="image_file" src="https://github.com/smcgann99/node-red-face-detection-plus/assets/130892737/c9fdd466-d80c-440d-b360-0894dff76949">
 </details>
     
     
@@ -92,7 +92,7 @@ Data is output in the output format selected in the 'Return Value' property.
 
 This is a simple example of this node.
 
-<img width="700" alt="example_flow" src="https://github.com/GOOD-I-DEER/node-red-contrib-face-detection/assets/130892737/ce1c102c-b1ca-4ed6-a2c0-d30cd10cc581">
+<img width="700" alt="example_flow" src="https://github.com/smcgann99/node-red-face-detection-plus/assets/130892737/ce1c102c-b1ca-4ed6-a2c0-d30cd10cc581">
 
 ### JSON
 
