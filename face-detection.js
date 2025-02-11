@@ -17,7 +17,7 @@ module.exports = function (RED) {
       try {
         if (model === undefined) {
           model = await ort.InferenceSession.create(
-            `${__dirname}/../model/${config.model}.onnx`
+            `${__dirname}/model/${config.model}.onnx`
           );
         }
 
