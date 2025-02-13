@@ -10,9 +10,26 @@ module.exports = function (RED) {
     const saveDir = config.absolutePathDir;
 
     let model;
+    let processing = false;
+    let messageQueue = [];
 
     node.on("input", async function (msg) {
-      this.status({ fill: "blue", shape: "dot", text: "processing..." });
+      messageQueue.push(msg);
+      if (!processing) {
+        processQueue();
+      }
+    });
+
+    async function processQueue() {
+      if (messageQueue.length === 0) {
+        processing = false;
+        return;
+      }
+
+      processing = true;
+      const msg = messageQueue.shift();
+
+      node.status({ fill: "blue", shape: "dot", text: "processing..." });
 
       try {
         if (model === undefined) {
@@ -22,19 +39,22 @@ module.exports = function (RED) {
         }
 
         if (returnValue === 2 && fs.existsSync(saveDir) === false) {
-          this.status({
+          node.status({
             fill: "red",
             shape: "ring",
             text: "folder doesn't exist",
           });
           node.error("folder doesn't exist");
+          processQueue();
           return;
         }
+
         const bufferFromImage = msg.payload;
         const img = sharp(bufferFromImage);
         const boxes = await detectFacesOnImage(img);
         msg.payload = boxes.length;
         msg.originImg = bufferFromImage;
+
         if (returnValue === 0) {
           msg.data = getDetectedFaces(boxes);
         } else if (returnValue === 1) {
@@ -42,18 +62,21 @@ module.exports = function (RED) {
         } else if (returnValue === 2) {
           msg.data = await saveImages(boxes, bufferFromImage);
         }
+
         node.send(msg);
+
         if (msg.payload >= 1) {
-          this.status({ fill: "green", shape: "ring", text: `${msg.payload} face(s)` });
-        }
-        else {
-          this.status({ fill: "red", shape: "ring", text: "No faces" });
+          node.status({ fill: "green", shape: "ring", text: `${msg.payload} face(s)` });
+        } else {
+          node.status({ fill: "red", shape: "ring", text: "No faces" });
         }
       } catch (error) {
-        this.status({ fill: "red", shape: "ring", text: error });
-        node.log(error);
+        node.status({ fill: "red", shape: "ring", text: error.message });
+        node.error(error);
       }
-    });
+
+      processQueue();
+    }
 
     async function detectFacesOnImage(img) {
       const [input, imgWidth, imgHeight] = await prepareInput(img);
@@ -63,7 +86,6 @@ module.exports = function (RED) {
 
     async function prepareInput(img) {
       const md = await img.metadata();
-
       const [imgWidth, imgHeight] = [md.width, md.height];
       const pixels = await img
         .removeAlpha()
@@ -102,8 +124,8 @@ module.exports = function (RED) {
         const yc = output[8400 + index];
         const w = output[2 * 8400 + index];
         const h = output[3 * 8400 + index];
-        
-        const x1 = Math.max (((xc - w / 2) / 640) * imgWidth, 0);
+
+        const x1 = Math.max(((xc - w / 2) / 640) * imgWidth, 0);
         const y1 = Math.max(((yc - h / 2) / 640) * imgHeight, 0);
         const x2 = Math.min(((xc + w / 2) / 640) * imgWidth, imgWidth);
         const y2 = Math.min(((yc + h / 2) / 640) * imgHeight, imgHeight);
@@ -136,7 +158,7 @@ module.exports = function (RED) {
     }
 
     async function getImageBuffers(boxes, bufferFromImage) {
-      const result = { face: [], boxes: [] }; 
+      const result = { face: [], boxes: [] };
       await Promise.all(
         boxes.map(async (box) => {
           try {
@@ -148,8 +170,8 @@ module.exports = function (RED) {
               w: box[2] - box[0],
               h: box[3] - box[1],
               prob: box[5],
-          };
-          result["boxes"].push(info);
+            };
+            result["boxes"].push(info);
           } catch (error) {
             node.error("An error occurred, when image cropped");
           }
