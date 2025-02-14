@@ -32,10 +32,17 @@ module.exports = function (RED) {
       node.status({ fill: "blue", shape: "dot", text: "processing..." });
 
       try {
-        if (model === undefined) {
-          model = await ort.InferenceSession.create(
-            `${__dirname}/model/${config.model}.onnx`
-          );
+        // Override threshold and model if provided in msg.faceOptions
+        const threshold = msg.faceOptions && !isNaN(msg.faceOptions.threshold) && msg.faceOptions.threshold >= 0 && msg.faceOptions.threshold <= 1 && msg.faceOptions.threshold !== ""
+          ? msg.faceOptions.threshold
+          : config.threshold;
+
+        const modelName = msg.faceOptions && typeof msg.faceOptions.model === 'string' && (msg.faceOptions.model === 'yolov8n-face' || msg.faceOptions.model === 'yolov8s-face')
+          ? msg.faceOptions.model
+          : config.model;
+
+        if (model === undefined || modelName !== config.model) {
+          model = await ort.InferenceSession.create(`${__dirname}/model/${modelName}.onnx`);
         }
 
         if (returnValue === 2 && fs.existsSync(saveDir) === false) {
@@ -51,7 +58,7 @@ module.exports = function (RED) {
 
         const bufferFromImage = msg.payload;
         const img = sharp(bufferFromImage);
-        const boxes = await detectFacesOnImage(img);
+        const boxes = await detectFacesOnImage(img, threshold);
         msg.payload = boxes.length;
         msg.originImg = bufferFromImage;
 
@@ -62,6 +69,11 @@ module.exports = function (RED) {
         } else if (returnValue === 2) {
           msg.data = await saveImages(boxes, bufferFromImage);
         }
+
+        msg.faceConfig = {
+          threshold: Number(threshold),
+          model: modelName
+        };
 
         node.send(msg);
 
@@ -78,10 +90,10 @@ module.exports = function (RED) {
       processQueue();
     }
 
-    async function detectFacesOnImage(img) {
+    async function detectFacesOnImage(img, threshold) {
       const [input, imgWidth, imgHeight] = await prepareInput(img);
       const output = await runModel(input);
-      return processOutput(output, imgWidth, imgHeight);
+      return processOutput(output, imgWidth, imgHeight, threshold);
     }
 
     async function prepareInput(img) {
@@ -112,11 +124,11 @@ module.exports = function (RED) {
       return outputs["output0"].data;
     }
 
-    function processOutput(output, imgWidth, imgHeight) {
+    function processOutput(output, imgWidth, imgHeight, threshold) {
       let boxes = [];
       for (let index = 0; index < 8400; index++) {
         const prob = output[8400 * 4 + index];
-        if (prob < config.threshold) {
+        if (prob < threshold) {
           continue;
         }
         const label = "face";
