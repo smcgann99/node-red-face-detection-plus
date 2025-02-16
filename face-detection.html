@@ -36,7 +36,7 @@
         required: true,
         validate: function (v) {
           let threshold = Number(v);
-          if (isNaN(threshold) || threshold < 0 || threshold > 1 || v === "") {
+          if (isNaN(threshold) || threshold < 0.1 || threshold > 1 || v === "") {
             $("#threshold-warning").css("display", "block");
             return false;
           } else {
@@ -84,13 +84,13 @@
   <div class="form-row">
     <div style="display: flex;">
       <label for="node-input-threshold"><i class="fa fa-sliders"></i>Confidence Threshold</label>
-      <input type="number" id="node-input-threshold" step="0.01" min="0" max="1">
+      <input type="number" id="node-input-threshold" step="0.01" min="0.1" max="1">
     </div>
     <p
       id="threshold-warning"
       style="color: red; display: none; margin-left: 105px;"
     >
-    Enter a value between 0 and 1.
+    Enter a value between 0.1 and 1.
     </p>
   </div>
   <div class="form-row" id="absolutePathDir-form">
