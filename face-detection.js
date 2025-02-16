@@ -33,16 +33,9 @@ module.exports = function (RED) {
 
       try {
         // Override threshold and model if provided in msg.faceOptions
-        let threshold = msg.faceOptions && !isNaN(msg.faceOptions.threshold) && msg.faceOptions.threshold >= 0 && msg.faceOptions.threshold <= 1 && msg.faceOptions.threshold !== ""
+        let threshold = msg.faceOptions && !isNaN(msg.faceOptions.threshold) && msg.faceOptions.threshold >= 0.1 && msg.faceOptions.threshold <= 1 && msg.faceOptions.threshold !== ""
           ? msg.faceOptions.threshold
           : config.threshold;
-
-        // Ensure threshold is between 0.1 and 1
-        if (threshold < 0.1) {
-          threshold = 0.1;
-        } else if (threshold > 1) {
-          threshold = 1;
-        }
 
         const modelName = msg.faceOptions && typeof msg.faceOptions.model === 'string' && (msg.faceOptions.model === 'yolov8n-face' || msg.faceOptions.model === 'yolov8s-face')
           ? msg.faceOptions.model
