@@ -73,17 +73,17 @@ Data is output in the output format selected in the 'Return Value' property.
 
 <details>
   <summary>Detected Object</summary>
-  <img width="180" style="display : inline-block; margin-left: 10px;" alt="detected_object" src="https://github.com/smcgann99/node-red-face-detection-plus/assets/facedetect_objects.png">
+  <img width="180" style="display : inline-block; margin-left: 10px;" alt="detected_object" src="https://raw.githubusercontent.com/smcgann99/node-red-face-detection-plus/main/assets/facedetect_objects.png">
 </details>
     
 <details>
   <summary>Image Buffer</summary>
-  <img width="700" alt="image_buffer" src="https://github.com/smcgann99/node-red-face-detection-plus/assets/facedetect_array.png">
+  <img width="700" alt="image_buffer" src="https://raw.githubusercontent.com/smcgann99/node-red-face-detection-plus/main/assets/facedetect_array.png">
 </details>
 
 <details>
   <summary>Image File</summary>
-  <img width="700" alt="image_file" src="https://github.com/smcgann99/node-red-face-detection-plus/assets/facedetect_images.png">
+  <img width="700" alt="image_file" src="https://raw.githubusercontent.com/smcgann99/node-red-face-detection-plus/main/assets/facedetect_images.png">
 </details>
     
     
@@ -92,7 +92,7 @@ Data is output in the output format selected in the 'Return Value' property.
 
 This is a simple example of this node.
 
-<img width="700" alt="example_flow" src="https://github.com/smcgann99/node-red-face-detection-plus/assets/130892737/ce1c102c-b1ca-4ed6-a2c0-d30cd10cc581">
+<img width="700" alt="example_flow" src="https://raw.githubusercontent.com/smcgann99/node-red-face-detection-plus/main/assets/file.png">
 
 ### JSON
 
