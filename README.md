@@ -73,17 +73,17 @@ Data is output in the output format selected in the 'Return Value' property.
 
 <details>
   <summary>Detected Object</summary>
-  <img width="180" style="display : inline-block; margin-left: 10px;" alt="detected_object" src="https://github.com/smcgann99/node-red-face-detection-plus/assets/130892737/abdb239c-8b53-4af2-8ebc-77956cdc42b1">
+  <img width="180" style="display : inline-block; margin-left: 10px;" alt="detected_object" src="https://github.com/smcgann99/node-red-face-detection-plus/assets/facedetect_objects.png">
 </details>
     
 <details>
   <summary>Image Buffer</summary>
-  <img width="700" alt="image_buffer" src="https://github.com/smcgann99/node-red-face-detection-plus/assets/130892737/f2842c90-b1ec-4dc1-8b8d-6f9aa361c604">
+  <img width="700" alt="image_buffer" src="https://github.com/smcgann99/node-red-face-detection-plus/assets/facedetect_array.png">
 </details>
 
 <details>
   <summary>Image File</summary>
-  <img width="700" alt="image_file" src="https://github.com/smcgann99/node-red-face-detection-plus/assets/130892737/c9fdd466-d80c-440d-b360-0894dff76949">
+  <img width="700" alt="image_file" src="https://github.com/smcgann99/node-red-face-detection-plus/assets/facedetect_images.png">
 </details>
     
     
