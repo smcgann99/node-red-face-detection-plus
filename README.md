@@ -1,18 +1,15 @@
-# @smcgann/node-red-face-detection-plus
-
 [![platform](https://img.shields.io/badge/platform-Node--RED-red)](https://nodered.org)
+[![Min Node Version](https://img.shields.io/node/v/smcgann99/node-red-face-detection-plus)](https://www.npmjs.com/package/%40smcgann%2Fnode-red-annotate-image-plus)
+[![npm version](https://badge.fury.io/js/@smcgann%2Fnode-red-face-detection-plus.svg)](https://badge.fury.io/js/@smcgann%2Fnode-red-detection-plus)
 [![GitHub license](https://img.shields.io/github/license/smcgann99/node-red-face-detection-plus)](https://github.com/smcgann99/node-red-face-detection-plus/blob/main/LICENSE)
 
-This node is based on  provides a node that detects faces using AI in Node-RED.
+# @smcgann/node-red-face-detection-plus
 
-These nodes require node.js version >=18 and Node-RED version >=3.1.0.
+A <a href="http://nodered.org" target="_blank">Node-RED</a> node that detects faces using AI.
 
-<hr>
+You can use the output with node-red-vectorize-plus as part of a face recognition flow. You can also use it to crop the face images from the original image and save them as files.
 
-# Description
-
- This module provides a node that detects faces in the picture. You can use the output with node-red-vectorize-plus as part of a face recognition flow.
- You can also use it to crop the face images from the original image and save them as files.
+This node is based on 
 
 # Install
 
@@ -25,18 +22,24 @@ npm install @smcgann/node-red-face-detection-plus
 
 ### Input
 
-- msg.payload -> Image Buffer (Image represented as binary buffer)
-- msg.faceOptions -> Object (used to override node config settings)
-e.g. {"threshold":0.4,"model":"yolov8n-face"}
+- msg.payload
+  Image Buffer (PNG,JPG,GIF,WEBP,TIFF,AVIF Image represented as binary buffer)
+
+- msg.faceOptions
+  Object (Optional input -  used to override node config settings e.g. {"threshold":0.4,"model":"yolov8n-face"} )
 
 
 ### Property
 
-<img width="700" alt="detected_object" src="https://github.com/smcgann99/node-red-face-detection-plus/assets/130892737/4b813dbf-d39b-4a84-b731-1f9f82500d2e">
+<img width="700" alt="Properties" src="https://raw.githubusercontent.com/smcgann99/node-red-face-detection-plus/main/assets/config.png">
 
 Name
 
 - The name of the node displayed in the editor.
+
+Model
+
+- The model to use for detection yoloV8n or yoloV8s (the **s** model is better at detecting smaller faces, at the expense of longer processing time)
 
 Return Value
 
@@ -176,10 +179,6 @@ This is a simple example of this node.
     }
 ]
 ```
-
-## **Discussions and suggestions**
-
-Use **[GitHub Issues](https://github.com/GOOD-I-DEER/node-red-contrib-face-vectorization/issues)** to ask questions or to discuss new features.
 
 ## **Authors**
 
