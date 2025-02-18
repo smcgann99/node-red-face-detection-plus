@@ -1,7 +1,7 @@
 # @smcgann/node-red-face-detection-plus
 
 [![platform](https://img.shields.io/badge/platform-Node--RED-red)](https://nodered.org)
-[![GitHub license](https://img.shields.io/github/license/smcgann/node-red-face-detection-plus)](https://github.com/smcgann99/node-red-face-detection-plus/blob/main/LICENSE)
+[![GitHub license](https://img.shields.io/github/license/smcgann99/node-red-face-detection-plus)](https://github.com/smcgann99/node-red-face-detection-plus/blob/main/LICENSE)
 
 This node is based on  provides a node that detects faces using AI in Node-RED.
 
@@ -41,13 +41,13 @@ Name
 Return Value
 
 - Type of data to be returned by the output of the node. Supports Detected Object, Image Buffer, and Image File.
-    - Detected Object : *data.boxes* will contain the detected face objects. Included values are x, y, w, h, prob.
+    - Detected Object : **data.boxes** will contain the detected face objects. Included values are x, y, w, h, prob.
         - x : zero-indexed offset from left edge of the original image
         - y : zero-indexed offset from top edge of the original image
         - w : the width of cropped image
         - h : the height of cropped image
         - prob : Accuracy of the face detected by the model
-    - Image Buffer : *data.faces* will contain an array of image buffers cropped from input image. Also includes *data.boxes* as above.
+    - Image Buffer : **data.faces** will contain an array of image buffers cropped from input image. Also includes **data.boxes** as above.
     - Image File : Image file(s) of the cropped faces.
 
 Absolute Path Dir
