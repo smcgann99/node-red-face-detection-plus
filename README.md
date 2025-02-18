@@ -1,6 +1,6 @@
 [![platform](https://img.shields.io/badge/platform-Node--RED-red)](https://nodered.org)
-[![Min Node Version](https://img.shields.io/node/v/smcgann99/node-red-face-detection-plus)](https://www.npmjs.com/package/%40smcgann%2Fnode-red-annotate-image-plus)
 [![npm version](https://badge.fury.io/js/@smcgann%2Fnode-red-face-detection-plus.svg)](https://badge.fury.io/js/@smcgann%2Fnode-red-detection-plus)
+[![Min Node Version](https://img.shields.io/node/v/smcgann/node-red-face-detection-plus)](https://www.npmjs.com/package/%40smcgann%2Fnode-red-annotate-image-plus)
 [![GitHub license](https://img.shields.io/github/license/smcgann99/node-red-face-detection-plus)](https://github.com/smcgann99/node-red-face-detection-plus/blob/main/LICENSE)
 
 # @smcgann/node-red-face-detection-plus
@@ -9,7 +9,16 @@ A <a href="http://nodered.org" target="_blank">Node-RED</a> node that detects fa
 
 You can use the output with node-red-vectorize-plus as part of a face recognition flow. You can also use it to crop the face images from the original image and save them as files.
 
-This node is based on 
+This node is based on [![@GOOD-I-DEER/node-red-contrib-face-detection](https://www.npmjs.com/package/@good-i-deer/node-red-contrib-face-detection)
+
+# Key changes 
+- Added YoloV8s-face model.
+- Image Buffer output now also includes bounding boxes, as these my be needed for annotations etc.
+- Moved data and originImg into separate msg. properties.
+- Return number of found faces in msg.payload.
+- Configuration can be overridden by msg.faceOptions.
+- Used configuration is reported in msg.faceConfig.
+- These changes make it easier to integrate the node within a flow.
 
 # Install
 
@@ -26,7 +35,7 @@ npm install @smcgann/node-red-face-detection-plus
   Image Buffer (PNG,JPG,GIF,WEBP,TIFF,AVIF Image represented as binary buffer)
 
 - msg.faceOptions
-  Object (Optional input -  used to override node config settings e.g. {"threshold":0.4,"model":"yolov8n-face"} )
+  Object (Optional input - used to override node config settings e.g. {"threshold":0.4,"model":"yolov8n-face"} )
 
 
 ### Property
@@ -67,17 +76,17 @@ Data is output in the output format selected in the 'Return Value' property.
 
 <details>
   <summary>Detected Object</summary>
-  <img width="180" style="display : inline-block; margin-left: 10px;" alt="detected_object" src="https://raw.githubusercontent.com/smcgann99/node-red-face-detection-plus/main/assets/facedetect_objects.png">
+  <img width="300" style="display : inline-block; margin-left: 10px;" alt="detected_object" src="https://raw.githubusercontent.com/smcgann99/node-red-face-detection-plus/main/assets/facedetect_objects.png">
 </details>
     
 <details>
   <summary>Image Buffer</summary>
-  <img width="700" alt="image_buffer" src="https://raw.githubusercontent.com/smcgann99/node-red-face-detection-plus/main/assets/facedetect_array.png">
+  <img width="300" alt="image_buffer" src="https://raw.githubusercontent.com/smcgann99/node-red-face-detection-plus/main/assets/facedetect_array.png">
 </details>
 
 <details>
   <summary>Image File</summary>
-  <img width="700" alt="image_file" src="https://raw.githubusercontent.com/smcgann99/node-red-face-detection-plus/main/assets/facedetect_images.png">
+  <img width="300" alt="image_file" src="https://raw.githubusercontent.com/smcgann99/node-red-face-detection-plus/main/assets/facedetect_images.png">
 </details>
     
 msg.faceConfig -> Object (returns values used for detection)
@@ -85,103 +94,9 @@ e.g. {"threshold":0.4,"model":"yolov8n-face"}
 
 mag.payload -> Number (number of faces detected)
 
-### Examples
-
-This is a simple example of this node.
-
-<img width="700" alt="example_flow" src="https://raw.githubusercontent.com/smcgann99/node-red-face-detection-plus/main/assets/file.png">
-
-### JSON
-
-```json
-[
-    {
-        "id": "bf67e15413744e7a",
-        "type": "debug",
-        "z": "83078a0b9760cbee",
-        "name": "Result",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 910,
-        "y": 340,
-        "wires": []
-    },
-    {
-        "id": "8619fc0fa7da3fe8",
-        "type": "good-face-detection",
-        "z": "83078a0b9760cbee",
-        "name": "",
-        "returnValue": "2",
-        "threshold": 0.5,
-        "absolutePathDir": "C:\\Users\\SSAFY\\Desktop\\test",
-        "x": 720,
-        "y": 340,
-        "wires": [
-            [
-                "bf67e15413744e7a"
-            ]
-        ]
-    },
-    {
-        "id": "0f11aafbbf09699e",
-        "type": "file in",
-        "z": "83078a0b9760cbee",
-        "name": "Image Path",
-        "filename": "C:\\Users\\SSAFY\\Desktop\\ssdc\\object\\플로우만들기\\test.png",
-        "filenameType": "str",
-        "format": "",
-        "chunk": false,
-        "sendError": false,
-        "encoding": "none",
-        "allProps": false,
-        "x": 510,
-        "y": 340,
-        "wires": [
-            [
-                "8619fc0fa7da3fe8"
-            ]
-        ]
-    },
-    {
-        "id": "b9dc304adfa64f1c",
-        "type": "inject",
-        "z": "83078a0b9760cbee",
-        "name": "Inject",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": "3",
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 350,
-        "y": 340,
-        "wires": [
-            [
-                "0f11aafbbf09699e"
-            ]
-        ]
-    }
-]
-```
 
 ## **Authors**
-
+**[S.McGann](https://github.com/smcgann99)** Modified Version
 **[GOOD-I-DEER](https://github.com/GOOD-I-DEER)** in SSAFY(Samsung Software Academy for Youth) 9th
 
 - [Kim Jaea](https://github.com/kimjaea)
@@ -193,7 +108,8 @@ This is a simple example of this node.
 
 ## **Copyright and license**
 
-Copyright Samsung Automation Studio Team under the **[GNU General Public License v3.0 license](https://www.gnu.org/licenses/gpl-3.0.html)**.
+S.McGann - Modified Version
+Samsung Automation Studio Team under the **[GNU General Public License v3.0 license](https://www.gnu.org/licenses/gpl-3.0.html)**.
 
 ## **Reference**
 
