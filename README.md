@@ -1,10 +1,9 @@
 # @smcgann/node-red-face-detection-plus
 
 [![platform](https://img.shields.io/badge/platform-Node--RED-red)](https://nodered.org)
-[![npm version](https://badge.fury.io/js/@good-i-deer%2Fnode-red-contrib-face-detection.svg)](https://badge.fury.io/js/@good-i-deer%2Fnode-red-contrib-face-detection)
-[![GitHub license](https://img.shields.io/github/license/GOOD-I-DEER/node-red-contrib-face-detection)](https://github.com/GOOD-I-DEER/node-red-contrib-face-detection/blob/main/LICENSE)
+[![GitHub license](https://img.shields.io/github/license/smcgann/node-red-face-detection-plus)](https://github.com/smcgann99/node-red-face-detection-plus/blob/main/LICENSE)
 
-This module provides a node that detects faces using AI in Node-RED.
+This node is based on  provides a node that detects faces using AI in Node-RED.
 
 These nodes require node.js version >=18 and Node-RED version >=3.1.0.
 
@@ -12,62 +11,54 @@ These nodes require node.js version >=18 and Node-RED version >=3.1.0.
 
 # Description
 
- This module provides a node that detects faces in the picture. you can use it with other services. You can also cut the face images you want from the origin image and download them. If you want, you can easily create a service by uploading images directly, using a webcam, or inputting photos from an IoT camera.
-
-# Pre-requisites
-
-@smcgann/node-red-face-detection-plus requires **[Node-RED](https://nodered.org/)** to be installed.
+ This module provides a node that detects faces in the picture. You can use the output with node-red-vectorize-plus as part of a face recognition flow.
+ You can also use it to crop the face images from the original image and save them as files.
 
 # Install
 
-To use this module you need to go to the folder where node-red is installed and use the npm install command.
+Either use the Edit Menu - Manage Palette option to install, or run the following command in your Node-RED user directory - typically `~/.node-red`
 
 ```bash
 cd ~/.node-red/
 npm install @smcgann/node-red-face-detection-plus
 ```
 
-# Node
+### Input
 
-## face-detection
+- msg.payload -> Image Buffer (Image represented as binary buffer)
+- msg.faceOptions -> Object (used to override node config settings)
+e.g. {"threshold":0.4,"model":"yolov8n-face"}
 
-This is a node that detects and outputs faces in image.
 
-### input
-
-Image Buffer
-
-- Image represented as binary buffer
-
-### property
+### Property
 
 <img width="700" alt="detected_object" src="https://github.com/smcgann99/node-red-face-detection-plus/assets/130892737/4b813dbf-d39b-4a84-b731-1f9f82500d2e">
 
 Name
 
-- The name of the node displayed on the workspace.
+- The name of the node displayed in the editor.
 
 Return Value
 
-- Type of data to be transmitted as output of the node. Supports Detected Object, Image Buffer, and Image File.
-    - Detected Object : Result object of the pre-trained model. A model can contain only the face object. Included values are x, y, w, h, prob.
+- Type of data to be returned by the output of the node. Supports Detected Object, Image Buffer, and Image File.
+    - Detected Object : *data.boxes* will contain the detected face objects. Included values are x, y, w, h, prob.
         - x : zero-indexed offset from left edge of the original image
         - y : zero-indexed offset from top edge of the original image
         - w : the width of cropped image
         - h : the height of cropped image
         - prob : Accuracy of the face detected by the model
-    - Image Buffer : Image buffer resulting from a pre-trained model
-    - Image File : Image file resulting from a pre-trained model.
+    - Image Buffer : *data.faces* will contain an array of image buffers cropped from input image. Also includes *data.boxes* as above.
+    - Image File : Image file(s) of the cropped faces.
 
 Absolute Path Dir
 
-- Absolute path to save the file to. Show only when you select Image File as Return Value
+- Absolute path to save the file to. Shown only when you select Image File as Return Value
 
 Confidence Threshold
 
-- Confidence threshold of the results of the pre-trained model. You must specify a value between 0 and 1. The lower the value, the more faces are detected.
+- Confidence threshold of the results of the pre-trained model. You must specify a value between 0.1 and 1. The lower the value, the more faces are detected.
 
-### output
+### Output
 
 Data is output in the output format selected in the 'Return Value' property.
 
@@ -86,7 +77,10 @@ Data is output in the output format selected in the 'Return Value' property.
   <img width="700" alt="image_file" src="https://raw.githubusercontent.com/smcgann99/node-red-face-detection-plus/main/assets/facedetect_images.png">
 </details>
     
-    
+msg.faceConfig -> Object (returns values used for detection)
+e.g. {"threshold":0.4,"model":"yolov8n-face"}
+
+mag.payload -> Number (number of faces detected)
 
 ### Examples
 
