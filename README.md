@@ -119,11 +119,11 @@ Data is output in the output format selected in the 'Return Value' property.
 
 
 ---
-## **Authors**  
+## ✍️ **Authors**  
 
-👤 **[S.McGann](https://github.com/smcgann99)** → Modified Version.  
+ **[S.McGann](https://github.com/smcgann99)** → Modified Version.  
 
-👥 **[GOOD-I-DEER](https://github.com/GOOD-I-DEER)** (Samsung Software Academy for Youth)  
+ **[GOOD-I-DEER](https://github.com/GOOD-I-DEER)** (Samsung Software Academy for Youth)  
 - [Kim Jaea](https://github.com/kimjaea)  
 - [Yi Jong Min](https://github.com/chickennight)  
 - [Lee Deok Yong](https://github.com/Gitgloo)  
@@ -133,11 +133,11 @@ Data is output in the output format selected in the 'Return Value' property.
 
 ---
 
-## **Copyright and license**
+## 📜 **Copyright and license**
 
-📜S.McGann → Modified Version
+S.McGann → Modified Version
 
-📜Samsung Automation Studio Team under the **[GNU General Public License v3.0 license](https://www.gnu.org/licenses/gpl-3.0.html)**.
+Samsung Automation Studio Team under the **[GNU General Public License v3.0 license](https://www.gnu.org/licenses/gpl-3.0.html)**.
 
 
 ## **References**  
