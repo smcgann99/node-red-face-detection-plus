@@ -1,7 +1,9 @@
 [![platform](https://img.shields.io/badge/platform-Node--RED-red)](https://nodered.org)
-[![npm version](https://badge.fury.io/js/%40smcgann%2Fnode-red-face-detection-plus.svg)](https://badge.fury.io/js/%40smcgann%2Fnode-red-face-detection-plus)
-[![Min Node Version](https://img.shields.io/node/v/%40smcgann/node-red-face-detection-plus)](https://www.npmjs.com/package/%40smcgann%2Fnode-red-annotate-image-plus)
+[![npm version](https://img.shields.io/npm/v/@smcgann/node-red-face-detection-plus.svg)](https://www.npmjs.com/package/@smcgann/node-red-face-detection-plus)
+[![Min Node Version](https://img.shields.io/node/v/@smcgann/node-red-face-detection-plus)](https://www.npmjs.com/package/@smcgann/node-red-annotate-image-plus)
 [![GitHub license](https://img.shields.io/github/license/smcgann99/node-red-face-detection-plus)](https://github.com/smcgann99/node-red-face-detection-plus/blob/main/LICENSE)
+
+
 
 # **@smcgann/node-red-face-detection-plus**
 
@@ -71,7 +73,7 @@ Defines the type of data returned:
 - Defines where the cropped face images are saved.  
 
 ### 🎯 **Confidence Threshold**  
-- Defines the **minimum confidence score** required for a detected face to be considered valid (**range: 0.1 - 1**):  
+- Defines the **minimum score** required for a detected face to be considered valid (**range: 0.1 - 1**):  
 
   | Threshold | Effect |  
   |-----------|--------|  
