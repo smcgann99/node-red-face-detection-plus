@@ -15,7 +15,7 @@ This node is based on 🔗 [@GOOD-I-DEER/node-red-contrib-face-detection](https:
 
 ## **Key Changes**
 ✔ Added **YOLOv8s-face** model.  
-✔ Added **postinstall** script to download models.
+✔ Added **postinstall** script to download models.  
 ✔ Updated **dependencies**.  
 ✔ Image Buffer output now includes **bounding boxes** (useful for annotations).  
 ✔ Moved **data** and **originImg** into separate `msg` properties.  
@@ -35,6 +35,7 @@ cd ~/.node-red/
 npm install @smcgann/node-red-face-detection-plus
 ```
 Restart your Node-RED instance
+
 ---
 
 ## **Input Properties**  
