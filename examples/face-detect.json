@@ -1,68 +1,50 @@
 [
     {
-        "id": "8619fc0fa7da3fe8",
-        "type": "good-face-detection",
-        "z": "83078a0b9760cbee",
-        "name": "",
-        "returnValue": "0",
-        "threshold": 0.5,
-        "absolutePathDir": "",
-        "x": 720,
-        "y": 340,
-        "wires": [
-            [
-                "bf67e15413744e7a"
-            ]
-        ]
-    },
-    {
         "id": "0f11aafbbf09699e",
         "type": "file in",
-        "z": "83078a0b9760cbee",
+        "z": "055c98606c931f5b",
         "name": "Image Path",
-        "filename": "",
-        "filenameType": "str",
+        "filename": "filename",
+        "filenameType": "msg",
         "format": "",
         "chunk": false,
         "sendError": false,
         "encoding": "none",
         "allProps": false,
-        "x": 510,
-        "y": 340,
+        "x": 963.3333333333334,
+        "y": 1960,
         "wires": [
             [
-                "8619fc0fa7da3fe8"
+                "8f9d57724a652b57"
             ]
         ]
     },
     {
         "id": "bf67e15413744e7a",
         "type": "debug",
-        "z": "83078a0b9760cbee",
+        "z": "055c98606c931f5b",
         "name": "Result",
         "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
+        "complete": "true",
+        "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 910,
-        "y": 340,
+        "x": 1310,
+        "y": 1960,
         "wires": []
     },
     {
         "id": "b9dc304adfa64f1c",
         "type": "inject",
-        "z": "83078a0b9760cbee",
-        "name": "Inject",
+        "z": "055c98606c931f5b",
+        "name": "filename",
         "props": [
             {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
+                "p": "filename",
+                "v": "/home/pi/filename.png",
                 "vt": "str"
             }
         ],
@@ -71,13 +53,28 @@
         "once": false,
         "onceDelay": "3",
         "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 350,
-        "y": 340,
+        "x": 800,
+        "y": 1960,
         "wires": [
             [
                 "0f11aafbbf09699e"
+            ]
+        ]
+    },
+    {
+        "id": "8f9d57724a652b57",
+        "type": "face-detection-plus",
+        "z": "055c98606c931f5b",
+        "name": "",
+        "returnValue": 0,
+        "model": "yolov8n-face",
+        "threshold": 0.5,
+        "absolutePathDir": "",
+        "x": 1146.6666666666667,
+        "y": 1960,
+        "wires": [
+            [
+                "bf67e15413744e7a"
             ]
         ]
     }

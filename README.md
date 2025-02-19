@@ -1,5 +1,5 @@
 [![platform](https://img.shields.io/badge/platform-Node--RED-red)](https://nodered.org)
-[![npm version](https://badge.fury.io/js/@smcgann%2Fnode-red-face-detection-plus.svg)](https://badge.fury.io/js/@smcgann%2Fnode-red-detection-plus)
+[![npm version](https://badge.fury.io/js/@smcgann%2Fnode-red-face-detection-plus.svg)](https://badge.fury.io/js/@smcgann%2Fnode-red-face-detection-plus)
 [![Min Node Version](https://img.shields.io/node/v/smcgann/node-red-face-detection-plus)](https://www.npmjs.com/package/%40smcgann%2Fnode-red-annotate-image-plus)
 [![GitHub license](https://img.shields.io/github/license/smcgann99/node-red-face-detection-plus)](https://github.com/smcgann99/node-red-face-detection-plus/blob/main/LICENSE)
 
@@ -13,6 +13,7 @@ This node is based on 🔗 [@GOOD-I-DEER/node-red-contrib-face-detection](https:
 
 ## **Key Changes**
 ✔ Added **YOLOv8s-face** model.  
+✔ Added **postinstall** script to download models.   
 ✔ Image Buffer output now includes **bounding boxes** (useful for annotations).  
 ✔ Moved **data** and **originImg** into separate `msg` properties.  
 ✔ Returns **number of detected faces** in `msg.payload`.  
@@ -34,7 +35,7 @@ npm install @smcgann/node-red-face-detection-plus
 ---
 
 ## **Input Properties**  
-### 📌 **msg.payload** → `Image Buffer`  
+### 🖼️ **msg.payload** → `Image Buffer`  
 - Accepts **PNG, JPG, GIF, WEBP, TIFF, AVIF** (binary image data).  
 
 ### ⚙️ **msg.faceOptions** → `Object` *(Optional)*  
@@ -83,10 +84,10 @@ Defines the type of data returned:
 
 Data is output in the output format selected in the 'Return Value' property.
 
-### 🔹 **msg.payload** → `Number`  
+### 📌 **msg.payload** → `Number`  
 - Number of faces detected.  
-### 🔹 **msg.originImg** → `Buffer`  
-- Provided Image.  
+### 🖼️ **msg.originImg** → `Buffer`  
+- Input Image.  
 <details>
   <summary>Detected Object</summary>
   <img width="300" style="display: inline-block; margin-left: 10px;" alt="detected_object" src="https://raw.githubusercontent.com/smcgann99/node-red-face-detection-plus/main/assets/facedetect_objects.png">
@@ -102,7 +103,7 @@ Data is output in the output format selected in the 'Return Value' property.
   <img width="300" alt="image_file" src="https://raw.githubusercontent.com/smcgann99/node-red-face-detection-plus/main/assets/facedetect_images.png">
 </details>
 
-### 🔹 **msg.faceConfig** → `Object`  
+### ⚙️ **msg.faceConfig** → `Object`  
 - Returns values used for detection.  
  
 ```json
