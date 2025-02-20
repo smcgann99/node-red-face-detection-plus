@@ -1,6 +1,6 @@
 [![platform](https://img.shields.io/badge/platform-Node--RED-red)](https://nodered.org)
 [![npm version](https://img.shields.io/npm/v/@smcgann/node-red-face-detection-plus.svg)](https://www.npmjs.com/package/@smcgann/node-red-face-detection-plus)
-[![Min Node Version](https://img.shields.io/node/v/@smcgann/node-red-face-detection-plus)](https://www.npmjs.com/package/@smcgann/node-red-annotate-image-plus)
+[![Min Node Version](https://img.shields.io/node/v/@smcgann/node-red-face-detection-plus)](https://www.npmjs.com/package/@smcgann/node-red-face-detection-plus)
 [![GitHub license](https://img.shields.io/github/license/smcgann99/node-red-face-detection-plus)](https://github.com/smcgann99/node-red-face-detection-plus/blob/main/LICENSE)
 
 
