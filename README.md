@@ -1,6 +1,6 @@
 [![platform](https://img.shields.io/badge/platform-Node--RED-red)](https://nodered.org)
 [![npm version](https://img.shields.io/npm/v/@smcgann/node-red-face-detection-plus.svg)](https://www.npmjs.com/package/@smcgann/node-red-face-detection-plus)
-[![Min Node Version](https://img.shields.io/node/v/@smcgann/node-red-face-detection-plus)](https://www.npmjs.com/package/@smcgann/node-red-annotate-image-plus)
+[![Min Node Version](https://img.shields.io/node/v/@smcgann/node-red-face-detection-plus)](https://www.npmjs.com/package/@smcgann/node-red-face-detection-plus)
 [![GitHub license](https://img.shields.io/github/license/smcgann99/node-red-face-detection-plus)](https://github.com/smcgann99/node-red-face-detection-plus/blob/main/LICENSE)
 
 
@@ -15,7 +15,8 @@ This node is derived from 🔗 [@GOOD-I-DEER/node-red-contrib-face-detection](ht
 
 ## **Key Changes**
 ✔ Added **YOLOv8s-face** model.  
-✔ Added **postinstall** script to download models.   
+✔ Added **postinstall** script to download models.  
+✔ Updated **dependencies**.  
 ✔ Image Buffer output now includes **bounding boxes** (useful for annotations).  
 ✔ Moved **data** and **originImg** into separate `msg` properties.  
 ✔ Returns **number of detected faces** in `msg.payload`.  
@@ -35,6 +36,7 @@ Either use the Edit Menu - Manage Palette option to install, or run the followin
 cd ~/.node-red/
 npm install @smcgann/node-red-face-detection-plus
 ```
+Restart your Node-RED instance
 
 ---
 
@@ -119,11 +121,11 @@ Data is output in the output format selected in the 'Return Value' property.
 
 
 ---
-## **Authors**  
+## ✍️ **Authors**  
 
-👤 **[S.McGann](https://github.com/smcgann99)** → Modified Version.  
+ **[S.McGann](https://github.com/smcgann99)** → Modified Version.  
 
-👥 **[GOOD-I-DEER](https://github.com/GOOD-I-DEER)** (Samsung Software Academy for Youth)  
+ **[GOOD-I-DEER](https://github.com/GOOD-I-DEER)** (Samsung Software Academy for Youth)  
 - [Kim Jaea](https://github.com/kimjaea)  
 - [Yi Jong Min](https://github.com/chickennight)  
 - [Lee Deok Yong](https://github.com/Gitgloo)  
@@ -133,11 +135,11 @@ Data is output in the output format selected in the 'Return Value' property.
 
 ---
 
-## **Copyright and license**
+## 📜 **Copyright and license**
 
-📜S.McGann → Modified Version
+S.McGann → Modified Version
 
-📜Samsung Automation Studio Team under the **[GNU General Public License v3.0 license](https://www.gnu.org/licenses/gpl-3.0.html)**.
+Samsung Automation Studio Team under the **[GNU General Public License v3.0 license](https://www.gnu.org/licenses/gpl-3.0.html)**.
 
 
 ## **References**  
