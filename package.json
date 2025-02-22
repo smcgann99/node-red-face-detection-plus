@@ -1,6 +1,6 @@
 {
   "name": "@smcgann/node-red-face-detection-plus",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Face Detection Node for Node-RED",
   "keywords": [
     "node-red",

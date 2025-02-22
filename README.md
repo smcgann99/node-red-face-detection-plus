@@ -9,9 +9,9 @@
 
 A <a href="http://nodered.org" target="_blank">Node-RED</a> node that detects faces using AI.
 
-You can use the output with node-red-vectorize-plus as part of a face recognition flow. You can also use it to crop the face images from the original image and save them as files.
+You can use the output with 🔗 [@smcgann/node-red-vectorize-plus](https://www.npmjs.com/package/@smcgann/node-red-vectorize-plus) as part of a face recognition flow. You can also use it to crop the face images from the original image and save them as files.
 
-This node is based on 🔗 [@GOOD-I-DEER/node-red-contrib-face-detection](https://www.npmjs.com/package/@good-i-deer/node-red-contrib-face-detection)
+This node is derived from 🔗 [@GOOD-I-DEER/node-red-contrib-face-detection](https://www.npmjs.com/package/@good-i-deer/node-red-contrib-face-detection)
 
 ## **Key Changes**
 ✔ Added **YOLOv8s-face** model.  
@@ -19,8 +19,10 @@ This node is based on 🔗 [@GOOD-I-DEER/node-red-contrib-face-detection](https:
 ✔ Image Buffer output now includes **bounding boxes** (useful for annotations).  
 ✔ Moved **data** and **originImg** into separate `msg` properties.  
 ✔ Returns **number of detected faces** in `msg.payload`.  
-✔ Configuration can be overridden dynamically via `msg.faceOptions`.  
-✔ Reports the applied configuration in `msg.faceConfig`.  
+✔ Supports runtime configuration through `msg.faceOptions` for dynamic settings.  
+✔ Includes metadata in `msg.faceConfig` (threshold and model).  
+✔ More robust **error handling**.  
+✔ **Better Performance**.  
 ✔ **Easier integration** into Node-RED flows.
 
 ---
